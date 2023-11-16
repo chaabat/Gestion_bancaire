@@ -1,0 +1,96 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+} */
+
+h1{
+    color: rgb(243, 243, 243);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 900;
+    
+    display: flex;
+    margin-bottom: 50px;
+    align-items: center;
+    justify-content: center;
+}
+ 
+table {
+            border-collapse: collapse;
+            width: 100%;
+}
+ th, td {
+            border: 3px solid #000000;
+            text-align: left;
+            padding: 8px;
+            color: black;
+            font-size: 900;
+ }
+ th {
+            background-color: rgb(255, 255, 255);
+ }
+
+
+
+
+ header {
+    background-color: #f0f0f0;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 200px;
+    top: 0;
+}
+.logo{
+    text-decoration: none;
+    color: #015770;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.6em;
+}
+.navigation a{
+    text-decoration: none;
+    font-size: 1.1em;
+    color:  #015770;
+    font-weight: 500;
+    padding-left: 30px;
+    text-transform: uppercase;
+
+}
+
+.navigation a:hover, .logo:hover{
+    color: #02212f;
+}
+
+
+section{
+    background-image: url("ss.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+}
+div{
+   height: 100%;
+   display: flex;
+   background: rgba(0, 0, 0, 0.471);
+   justify-content: center;
+   align-items: center;
+}
+div span{
+    color : white;
+    font-size: 5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 100px;
+}
+footer{
+    background-color: #f0f0f0;
+    text-align: center;
+    height: 20px;
+    color: #02212f;
+}
