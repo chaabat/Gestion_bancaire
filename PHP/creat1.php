@@ -1,4 +1,3 @@
-
 <?php
 $servername = "localhost";
 $username = "root";
@@ -43,4 +42,3 @@ if ($cnx->query($sql) === TRUE) {
 }
 
 ?>
-

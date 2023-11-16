@@ -36,7 +36,7 @@ $cnx = new mysqli($servername, $username, $password,$dbname);
         </nav>
     </header>
     
-<section >
+<section class ="tabclient">
     <h1>Clients</h1>
 
     <table >
@@ -48,6 +48,7 @@ $cnx = new mysqli($servername, $username, $password,$dbname);
                 <th>Date de naissance</th>
                 <th>Nationalité</th>
                 <th>genre</th>
+                <th>Comptes</th>
             </tr>
 <?php
 $sql = "SELECT id, nom, prenom, dateNais, nationalite, genre FROM Client";
@@ -56,8 +57,15 @@ $result = $cnx->query($sql);
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
-    echo "<tr><td>" . $row["id"]. " </td><td> " . $row["nom"]. "</td><td> " . $row["prenom"]. " </td><td>" . $row["dateNais"]. "</td><td> " . $row["nationalite"]. "</td><td>" . $row["genre"]. "</td></tr><br>";
-  }
+    echo "<tr>
+    <td>" . $row["id"]. " </td>
+    <td> " . $row["nom"]. "</td>
+    <td> " . $row["prenom"]. " </td>
+    <td>" . $row["dateNais"]. "</td>
+    <td> " . $row["nationalite"]. "</td>
+    <td>" . $row["genre"].  "</td>
+    <td> <button>Afficher les comptes</button> </td>
+    </tr><br>";  }
 } else {
  /* echo "0 results";*/
 }

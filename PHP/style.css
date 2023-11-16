@@ -1,8 +1,10 @@
-*{
+  @import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700&family=Kdam+Thmor+Pro&display=swap');
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-} */
+    font-family: "Gabarito";
+} 
 
 h1{
     color: rgb(243, 243, 243);
@@ -14,27 +16,39 @@ h1{
     align-items: center;
     justify-content: center;
 }
+.tabclient{
+    padding: 30px;
+}
  
 table {
             border-collapse: collapse;
             width: 100%;
+            padding: 80px;
+            justify-content: center;
+            align-items: center;
 }
  th, td {
             border: 3px solid #000000;
-            text-align: left;
+            text-align: center;
             padding: 8px;
             color: black;
             font-size: 900;
+            background-color: #f0f0f0;
  }
  th {
-            background-color: rgb(255, 255, 255);
+            background-color: rgb(145, 145, 145);
+
+ }
+
+ th a {
+    text-decoration: none;
  }
 
 
 
 
  header {
-    background-color: #f0f0f0;
+    background-color: rgb(145, 145, 145);
     width: 100%;
     position: fixed;
     z-index: 999;
@@ -46,7 +60,7 @@ table {
 }
 .logo{
     text-decoration: none;
-    color: #015770;
+    color: white;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 1.6em;
@@ -54,7 +68,7 @@ table {
 .navigation a{
     text-decoration: none;
     font-size: 1.1em;
-    color:  #015770;
+    color:  white;
     font-weight: 500;
     padding-left: 30px;
     text-transform: uppercase;
@@ -89,8 +103,8 @@ div span{
     margin-top: 100px;
 }
 footer{
-    background-color: #f0f0f0;
+    background-color: rgb(145, 145, 145);
     text-align: center;
-    height: 20px;
-    color: #02212f;
+    color: white;
+    padding: 10px;
 }
