@@ -44,6 +44,7 @@ $cnx = new mysqli($servername, $username, $password,$dbname);
                 <th>ID</th>
                 <th>Montant</th>
                 <th>Type</th>
+                <th>Client ID</th>
                
             </tr>
 <?php
@@ -62,6 +63,8 @@ if ($result->num_rows > 0) {
     <td>" . $row["id"]. " </td>
     <td> " . $row["montant"]. "</td>
     <td> " . $row["types"]. " </td>
+    <td> " . $row["clientid"]. "</td>
+
     </tr>
     </tr><br>";  
  }

@@ -65,7 +65,7 @@ if ($result->num_rows > 0) {
     <td> " . $row["devise"]. " </td>
     <td>" . $row["rib"]. "</td>
     <td> " . $row["clientid"]. "</td>
-    <td> <a href='transactions.php?comp=" . $row['id'] . "'>Afficher les transiction</a> </td>
+    <td> <a href='transactions.php?trans=" . $row['clientid'] . "'>Afficher les transactions</a> </td>
     </tr><br>";  }
 } else {
  /* echo "0 results";*/

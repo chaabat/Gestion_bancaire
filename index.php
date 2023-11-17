@@ -74,6 +74,7 @@ $sql = "INSERT INTO client (id,nom,prenom,dateNais,nationalite,genre)
 VALUES ('', 'ayoub', 'chaabat','1998/11/15','maroccain','male')";
 
 if ($cnx->query($sql) === TRUE) {
+  $clientID = $cnx->insert_id; // Get the last inserted ID
 //   echo "New record created successfully";
 } else {
   echo "Error: " . $sql . "<br>" . $cnx->error;
@@ -92,9 +93,8 @@ $date = date("ymdHis");
 $rib = $date;
 
 $cnx->query($sql);
-
-$sql = "INSERT INTO compte (id,balance,devise,rib)
-VALUES ('','250', 'MAD','$rib')";
+$sql = "INSERT INTO compte (id,balance,devise,rib,clientid)
+VALUES ('','250', 'MAD','$rib',$clientID)";
 
 if ($cnx->query($sql) === TRUE) {
 // echo "New record created successfully";
@@ -114,8 +114,8 @@ $sql = "CREATE TABLE if not exists transactions (
 
 $cnx->query($sql);
 
-$sql = "INSERT INTO transactions (id,montant,types)
-VALUES ('', '250','credit')";
+$sql = "INSERT INTO transactions (id,montant,types,clientid)
+VALUES ('', '250','credit',$clientID)";
 
 if ($cnx->query($sql) === TRUE) {
 // echo "New record created successfully";
