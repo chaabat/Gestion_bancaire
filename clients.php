@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/@themesberg/flowbite@1.1.1/dist/flowbite.bundle.js"></script>
     <title>CHbank</title>
 </head>
 
@@ -27,17 +25,18 @@ $creerdb = "create database if not exists chbank" ;
 $cnx = new mysqli($servername, $username, $password,$dbname);
 ?> -->
 <header>
-        <a href="" class="logo">E-banking</a>
+<a href="index.php" class="logo"><img src="logo.png" alt=""></a>
         <nav class="navigation">
             <a href="index.php">Home</a>
             <a href="clients.php">Clients</a>
-            <a href="">Comptes</a>
+            <a href="comptes.php">Comptes</a>
             <a href="">Transactions</a>
         </nav>
     </header>
     
+    
 <section class ="tabclient">
-    <h1>Clients</h1>
+    <!-- <h1>Clients</h1> -->
 
     <table >
         <thead>
@@ -65,7 +64,8 @@ if ($result->num_rows > 0) {
     <td> " . $row["nationalite"]. "</td>
     <td>" . $row["genre"].  "</td>
     <td> <button>Afficher les comptes</button> </td>
-    </tr><br>";  }
+    </tr>"; 
+ }
 } else {
  /* echo "0 results";*/
 }
@@ -78,11 +78,10 @@ $cnx->close();
            
     </table>
    
-</section>
-<footer>
+    </section>
+    <footer>
       <p>&#169; BY CHAABAT</p>
     </footer>
-
 </body>
 </html>
 

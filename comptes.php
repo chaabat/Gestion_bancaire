@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@themesberg/flowbite@1.1.1/dist/flowbite.bundle.js"></script>
+    <title>CHbank</title>
+</head>
+
+<body>
+
+<!-- <?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "chbank";
+
+
+// Create connection
+
+$creerdb = "create database if not exists chbank" ;
+
+
+$cnx = new mysqli($servername, $username, $password,$dbname);
+?> -->
+<header>
+<a href="index.php" class="logo"><img src="logo.png" alt=""></a>
+        <nav class="navigation">
+            <a href="index.php">Home</a>
+            <a href="clients.php">Clients</a>
+            <a href="comptes.php">Comptes</a>
+            <a href="">Transactions</a>
+        </nav>
+    </header>
+    
+<section class ="tabclient">
+   <table >
+        <thead>
+            <tr >
+                <th>ID</th>
+                <th>Balance</th>
+                <th>Devise</th>
+                <th>RIB</th>
+                <th>Client ID</th>
+                <th>Afficher les transitions</th>
+            </tr>
+<?php
+$sql = "SELECT id, balance, devise, rib, clientid FROM Comptes";
+$result = $cnx->query($sql);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    echo "<tr>
+    <td>" . $row["id"]. " </td>
+    <td> " . $row["balance"]. "</td>
+    <td> " . $row["devise"]. " </td>
+    <td>" . $row["rib"]. "</td>
+    <td> " . $row["clientid"]. "</td>
+    <td> <button>Afficher les transitions</button> </td>
+    </tr><br>";  }
+} else {
+ /* echo "0 results";*/
+}
+
+$cnx->close();
+?>
+
+     </thead>
+        
+           
+    </table>
+   
+</section>
+<footer>
+      <p>&#169; BY CHAABAT</p>
+    </footer>
+
+</body>
+</html>
