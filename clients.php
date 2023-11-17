@@ -63,7 +63,7 @@ if ($result->num_rows > 0) {
     <td>" . $row["dateNais"]. "</td>
     <td> " . $row["nationalite"]. "</td>
     <td>" . $row["genre"].  "</td>
-    <td> <button>Afficher les comptes</button> </td>
+    <td> <a href='comptes.php?comp=" . $row['id'] . "'>Afficher les comptes</a> </td>
     </tr>"; 
  }
 } else {

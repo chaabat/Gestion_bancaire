@@ -44,13 +44,17 @@ $cnx = new mysqli($servername, $username, $password,$dbname);
                 <th>ID</th>
                 <th>Montant</th>
                 <th>Type</th>
-                <th>Clien ID</th>
                
             </tr>
 <?php
-$sql = "SELECT id, montant, types, clientID FROM transactions";
+$sql = "SELECT id, montant, types, clientid FROM transactions";
 $result = $cnx->query($sql);
-
+if (isset($_GET['trans']))
+{
+    $id = $_GET['trans'];
+    $sql = "SELECT * FROM transactions WHERE clientid = $id";
+    $result = $cnx->query($sql);
+}
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
@@ -58,8 +62,8 @@ if ($result->num_rows > 0) {
     <td>" . $row["id"]. " </td>
     <td> " . $row["montant"]. "</td>
     <td> " . $row["types"]. " </td>
-    <td>" . $row["clientID"]. "</td>
-    </tr>"; 
+    </tr>
+    </tr><br>";  
  }
 } else {
  /* echo "0 results";*/

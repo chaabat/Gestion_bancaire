@@ -37,7 +37,7 @@ $cnx = new mysqli($servername, $username, $password,$dbname);
 <section class ="tabclient">
    <table >
         <thead>
-            <tr >
+            <tr>
                 <th>ID</th>
                 <th>Balance</th>
                 <th>Devise</th>
@@ -46,8 +46,15 @@ $cnx = new mysqli($servername, $username, $password,$dbname);
                 <th>Afficher les transitions</th>
             </tr>
 <?php
-$sql = "SELECT id, balance, devise, rib, clientid FROM Comptes";
+$sql = "SELECT id, balance, devise, rib, clientid FROM compte";
 $result = $cnx->query($sql);
+
+if (isset($_GET['comp']))
+{
+    $id = $_GET['comp'];
+    $sql = "SELECT * FROM compte WHERE clientid = $id";
+    $result = $cnx->query($sql);
+}
 
 if ($result->num_rows > 0) {
   // output data of each row
@@ -58,7 +65,7 @@ if ($result->num_rows > 0) {
     <td> " . $row["devise"]. " </td>
     <td>" . $row["rib"]. "</td>
     <td> " . $row["clientid"]. "</td>
-    <td> <button>Afficher les transitions</button> </td>
+    <td> <a href='transactions.php?comp=" . $row['id'] . "'>Afficher les transiction</a> </td>
     </tr><br>";  }
 } else {
  /* echo "0 results";*/

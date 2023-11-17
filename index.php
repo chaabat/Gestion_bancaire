@@ -71,7 +71,7 @@ $sql = "CREATE TABLE if not exists client (
 $cnx->query($sql);
 
 $sql = "INSERT INTO client (id,nom,prenom,dateNais,nationalite,genre)
-VALUES ('', 'indiana', 'jones','1970/11/03','maroccain','female')";
+VALUES ('', 'ayoub', 'chaabat','1998/11/15','maroccain','male')";
 
 if ($cnx->query($sql) === TRUE) {
 //   echo "New record created successfully";
@@ -80,21 +80,21 @@ if ($cnx->query($sql) === TRUE) {
 }
 
 //comptes table
-$sql = "CREATE TABLE if not exists comptes (
+$sql = "CREATE TABLE if not exists compte (
   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   balance VARCHAR(30) NOT NULL,
   devise VARCHAR(30) NOT NULL,
   rib VARCHAR(30) NOT NULL,
-  clientid VARCHAR(30) NOT NULL
- 
+  clientid INT UNSIGNED,
+  FOREIGN KEY (clientid) REFERENCES client(id)
   )";
 $date = date("ymdHis");
 $rib = $date;
 
 $cnx->query($sql);
 
-$sql = "INSERT INTO comptes (id,balance,devise,rib,clientid)
-VALUES ('', '250', 'MAD','$rib','maroccain')";
+$sql = "INSERT INTO compte (id,balance,devise,rib)
+VALUES ('','250', 'MAD','$rib')";
 
 if ($cnx->query($sql) === TRUE) {
 // echo "New record created successfully";
@@ -107,14 +107,15 @@ $sql = "CREATE TABLE if not exists transactions (
   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   montant VARCHAR(30) NOT NULL,
   types VARCHAR(30) NOT NULL,
-  clientID VARCHAR(30) NOT NULL
+  clientid INT UNSIGNED,
+  FOREIGN KEY (clientid) REFERENCES client(id)
  
   )";
 
 $cnx->query($sql);
 
-$sql = "INSERT INTO transactions (id,montant,types,clientID)
-VALUES ('', '250','credit','maroccain')";
+$sql = "INSERT INTO transactions (id,montant,types)
+VALUES ('', '250','credit')";
 
 if ($cnx->query($sql) === TRUE) {
 // echo "New record created successfully";
