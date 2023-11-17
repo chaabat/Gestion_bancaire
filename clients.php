@@ -27,10 +27,10 @@ $cnx = new mysqli($servername, $username, $password,$dbname);
 <header>
 <a href="index.php" class="logo"><img src="logo.png" alt=""></a>
         <nav class="navigation">
-            <a href="index.php">Home</a>
+        <a href="index.php">Home</a>
             <a href="clients.php">Clients</a>
             <a href="comptes.php">Comptes</a>
-            <a href="">Transactions</a>
+            <a href="transactions.php">Transactions</a>
         </nav>
     </header>
     

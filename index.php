@@ -19,7 +19,7 @@
             <a href="index.php">Home</a>
             <a href="clients.php">Clients</a>
             <a href="comptes.php">Comptes</a>
-            <a href="">Transactions</a>
+            <a href="transactions.php">Transactions</a>
         </nav>
     </header>
     <section>
@@ -58,7 +58,7 @@ if (!$cnx->query($creerdb)) {
 }
 
 
-
+//client table
 $sql = "CREATE TABLE if not exists client (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(30) NOT NULL,
@@ -79,7 +79,7 @@ if ($cnx->query($sql) === TRUE) {
   echo "Error: " . $sql . "<br>" . $cnx->error;
 }
 
-
+//comptes table
 $sql = "CREATE TABLE if not exists comptes (
   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   balance VARCHAR(30) NOT NULL,
@@ -101,6 +101,27 @@ if ($cnx->query($sql) === TRUE) {
 } else {
 echo "Error: " . $sql . "<br>" . $cnx->error;
 }
+
+//transaction table
+$sql = "CREATE TABLE if not exists transactions (
+  id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  montant VARCHAR(30) NOT NULL,
+  types VARCHAR(30) NOT NULL,
+  clientID VARCHAR(30) NOT NULL
+ 
+  )";
+
+$cnx->query($sql);
+
+$sql = "INSERT INTO transactions (id,montant,types,clientID)
+VALUES ('', '250','credit','maroccain')";
+
+if ($cnx->query($sql) === TRUE) {
+// echo "New record created successfully";
+} else {
+echo "Error: " . $sql . "<br>" . $cnx->error;
+}
+
 
 
 ?>
